@@ -1,0 +1,107 @@
+{
+  "students": [
+    {
+      "id": "STU001",
+      "name": "Amina Yusuf",
+      "department": "Computer Science",
+      "level": "100 Level",
+      "className": "Computer Science",
+      "fingerprintId": "101",
+      "contact": "",
+      "guardianPhone": "",
+      "createdAt": "2026-05-20T12:08:57.476Z",
+      "courseIds": [
+        "CRS-GEN"
+      ]
+    },
+    {
+      "id": "STU002",
+      "name": "Chinedu Okafor",
+      "department": "Computer Science",
+      "level": "100 Level",
+      "className": "Computer Science",
+      "fingerprintId": "102",
+      "contact": "",
+      "guardianPhone": "",
+      "createdAt": "2026-05-20T12:08:57.477Z",
+      "courseIds": [
+        "CRS-GEN"
+      ]
+    },
+    {
+      "id": "STU004",
+      "name": "Timilehin Akinsorotan",
+      "department": "Computer Science",
+      "level": "100 Level",
+      "className": "Computer Science",
+      "fingerprintId": "104",
+      "contact": "234657888999",
+      "guardianPhone": "234657888999",
+      "createdAt": "2026-05-20T13:21:39.721Z",
+      "courseIds": [
+        "CRS-GEN"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "id": "att_67184ea17ab5",
+      "studentId": "STU001",
+      "studentName": "Amina Yusuf",
+      "department": "Computer Science",
+      "level": "100 Level",
+      "className": "Computer Science",
+      "fingerprintId": "101",
+      "status": "present",
+      "deviceId": "esp32-main-gate",
+      "method": "fingerprint",
+      "note": "",
+      "timestamp": "2026-05-20T12:25:28.985Z",
+      "courseId": "CRS-GEN",
+      "courseName": "General Course Attendance"
+    },
+    {
+      "id": "att_cdbaea0e2335",
+      "studentId": "STU002",
+      "studentName": "Chinedu Okafor",
+      "department": "Computer Science",
+      "level": "100 Level",
+      "className": "Computer Science",
+      "fingerprintId": "102",
+      "status": "present",
+      "deviceId": "dashboard",
+      "method": "manual",
+      "note": "",
+      "timestamp": "2026-05-20T12:27:38.483Z",
+      "courseId": "CRS-GEN",
+      "courseName": "General Course Attendance"
+    },
+    {
+      "id": "att_bfa1a5ea044d",
+      "studentId": "STU004",
+      "studentName": "Timilehin Akinsorotan",
+      "department": "Computer Science",
+      "level": "100 Level",
+      "className": "Computer Science",
+      "fingerprintId": "104",
+      "status": "present",
+      "deviceId": "esp32-main-gate",
+      "method": "fingerprint",
+      "note": "",
+      "timestamp": "2026-05-20T13:22:13.764Z",
+      "courseId": "CRS-GEN",
+      "courseName": "General Course Attendance"
+    }
+  ],
+  "courses": [
+    {
+      "id": "CRS-GEN",
+      "name": "General Course Attendance",
+      "department": "",
+      "level": "",
+      "semester": "",
+      "className": "",
+      "createdAt": "2026-05-27T05:00:07.481Z"
+    }
+  ]
+}

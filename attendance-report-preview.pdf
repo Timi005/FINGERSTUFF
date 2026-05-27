@@ -1,0 +1,174 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Length 3918 >>
+stream
+0.7 w
+0.07 0.13 0.1 rg
+BT /F2 18 Tf 1 0 0 1 36 570 Tm (Course Attendance Report) Tj ET
+0.35 0.42 0.38 rg
+BT /F1 8 Tf 1 0 0 1 36 550 Tm (Generated: 27 May 2026, 06:44) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 536 Tm (Filters: All records) Tj ET
+BT /F1 8 Tf 1 0 0 1 640 550 Tm (Records: 3) Tj ET
+BT /F1 8 Tf 1 0 0 1 640 536 Tm (Page: 1 of 1) Tj ET
+0.43 0.51 0.46 RG
+36 522 m 756 522 l S
+0.88 0.93 0.9 rg
+36 478 720 22 re f
+0.43 0.51 0.46 RG
+0.55 w
+36 478 720 22 re S
+36 478 m 36 500 l S
+0.07 0.13 0.1 rg
+BT /F2 7 Tf 1 0 0 1 51.92 487 Tm (No.) Tj ET
+66 478 m 66 500 l S
+0.07 0.13 0.1 rg
+BT /F2 7 Tf 1 0 0 1 70 487 Tm (Date / Time) Tj ET
+162 478 m 162 500 l S
+0.07 0.13 0.1 rg
+BT /F2 7 Tf 1 0 0 1 166 487 Tm (Matric No.) Tj ET
+244 478 m 244 500 l S
+0.07 0.13 0.1 rg
+BT /F2 7 Tf 1 0 0 1 248 487 Tm (Student) Tj ET
+352 478 m 352 500 l S
+0.07 0.13 0.1 rg
+BT /F2 7 Tf 1 0 0 1 356 487 Tm (Course) Tj ET
+484 478 m 484 500 l S
+0.07 0.13 0.1 rg
+BT /F2 7 Tf 1 0 0 1 488 487 Tm (Department) Tj ET
+580 478 m 580 500 l S
+0.07 0.13 0.1 rg
+BT /F2 7 Tf 1 0 0 1 584 487 Tm (Level) Tj ET
+636 478 m 636 500 l S
+0.07 0.13 0.1 rg
+BT /F2 7 Tf 1 0 0 1 640 487 Tm (Status) Tj ET
+692 478 m 692 500 l S
+0.07 0.13 0.1 rg
+BT /F2 7 Tf 1 0 0 1 696 487 Tm (Method) Tj ET
+756 478 m 756 500 l S
+0.74 0.78 0.75 RG
+0.35 w
+36 458 30 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 58.64 466 Tm (1) Tj ET
+66 458 96 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 70 466 Tm (20 May 2026, 13:25) Tj ET
+162 458 82 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 166 466 Tm (STU001) Tj ET
+244 458 108 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 248 466 Tm (Amina Yusuf) Tj ET
+352 458 132 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 356 466 Tm (CRS-GEN General Course Attendance) Tj ET
+484 458 96 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 488 466 Tm (Computer Science) Tj ET
+580 458 56 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 584 466 Tm (100 Level) Tj ET
+636 458 56 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 640 466 Tm (Present) Tj ET
+692 458 64 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 696 466 Tm (fingerprint) Tj ET
+0.98 0.99 0.98 rg
+36 438 720 20 re f
+0.74 0.78 0.75 RG
+0.35 w
+36 438 30 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 58.64 446 Tm (2) Tj ET
+66 438 96 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 70 446 Tm (20 May 2026, 13:27) Tj ET
+162 438 82 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 166 446 Tm (STU002) Tj ET
+244 438 108 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 248 446 Tm (Chinedu Okafor) Tj ET
+352 438 132 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 356 446 Tm (CRS-GEN General Course Attendance) Tj ET
+484 438 96 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 488 446 Tm (Computer Science) Tj ET
+580 438 56 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 584 446 Tm (100 Level) Tj ET
+636 438 56 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 640 446 Tm (Present) Tj ET
+692 438 64 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 696 446 Tm (manual) Tj ET
+0.74 0.78 0.75 RG
+0.35 w
+36 418 30 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 58.64 426 Tm (3) Tj ET
+66 418 96 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 70 426 Tm (20 May 2026, 14:22) Tj ET
+162 418 82 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 166 426 Tm (STU004) Tj ET
+244 418 108 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 248 426 Tm (Timilehin Akinsorotan) Tj ET
+352 418 132 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 356 426 Tm (CRS-GEN General Course Attendance) Tj ET
+484 418 96 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 488 426 Tm (Computer Science) Tj ET
+580 418 56 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 584 426 Tm (100 Level) Tj ET
+636 418 56 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 640 426 Tm (Present) Tj ET
+692 418 64 20 re S
+0.09 0.13 0.11 rg
+BT /F1 7 Tf 1 0 0 1 696 426 Tm (fingerprint) Tj ET
+0.35 0.42 0.38 rg
+BT /F1 7 Tf 1 0 0 1 36 18 Tm (University Course Attendance) Tj ET
+BT /F1 7 Tf 1 0 0 1 697 18 Tm (Page 1 of 1) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 792 612] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000260 00000 n 
+0000000328 00000 n 
+0000004298 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+4444
+%%EOF

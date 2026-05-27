@@ -1,0 +1,12 @@
+{
+  "name": "fingerstuff-attendance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple student attendance system with ESP32-friendly check-in API.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

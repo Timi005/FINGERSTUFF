@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>University Course Attendance</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <section id="loginView" class="login-view" aria-label="Login">
+      <form id="loginForm" class="login-panel">
+        <p class="eyebrow">University Attendance</p>
+        <h1>Admin Login</h1>
+        <label>
+          Username
+          <input name="username" autocomplete="username" required>
+        </label>
+        <label>
+          Password
+          <input name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit" class="primary">Login</button>
+        <p id="loginMessage" class="message" role="status"></p>
+      </form>
+    </section>
+
+    <div id="dashboardView" class="app-view" hidden>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">University Attendance</p>
+          <h1>Course Attendance</h1>
+        </div>
+        <div class="topbar-actions">
+          <span id="currentUser" class="user-pill"></span>
+          <button id="refreshBtn" class="icon-button" title="Refresh dashboard" aria-label="Refresh dashboard">
+            <span aria-hidden="true">R</span>
+          </button>
+          <button id="logoutBtn" class="secondary">Logout</button>
+        </div>
+      </header>
+
+      <main class="shell">
+        <section class="stats-grid" aria-label="Attendance summary">
+          <article class="stat">
+            <span>Total Students</span>
+            <strong id="totalStudents">0</strong>
+          </article>
+          <article class="stat">
+            <span>Attendance Marks Today</span>
+            <strong id="presentToday">0</strong>
+          </article>
+          <article class="stat">
+            <span>Outstanding Marks Today</span>
+            <strong id="absentToday">0</strong>
+          </article>
+        </section>
+
+        <section class="workspace">
+          <div class="panel">
+            <div class="panel-heading">
+              <h2>Register Student</h2>
+            </div>
+            <form id="studentForm" class="form-grid">
+              <label>
+                Matric Number
+                <input name="id" placeholder="CSC/26/003" autocomplete="off" required>
+              </label>
+              <label>
+                Full Name
+                <input name="name" placeholder="Student name" required>
+              </label>
+              <label>
+                Department
+                <input name="department" placeholder="Computer Science" required>
+              </label>
+              <label>
+                Level
+                <select name="level" required>
+                  <option value="">Select level</option>
+                  <option value="100 Level">100 Level</option>
+                  <option value="200 Level">200 Level</option>
+                  <option value="300 Level">300 Level</option>
+                  <option value="400 Level">400 Level</option>
+                  <option value="500 Level">500 Level</option>
+                </select>
+              </label>
+              <label>
+                Fingerprint ID
+                <input name="fingerprintId" placeholder="103" autocomplete="off">
+              </label>
+              <label>
+                Phone or Email
+                <input name="contact" placeholder="+234... or student@university.edu" autocomplete="off">
+              </label>
+              <fieldset class="wide-field">
+                <legend>Course Registration</legend>
+                <div id="studentCourses" class="checkbox-grid"></div>
+              </fieldset>
+              <div class="form-actions">
+                <button id="studentSubmitBtn" type="submit" class="primary">Add Student</button>
+                <button id="cancelStudentEditBtn" type="button" class="secondary" hidden>Cancel</button>
+              </div>
+            </form>
+            <p id="formMessage" class="message" role="status"></p>
+          </div>
+
+          <div class="panel">
+            <div class="panel-heading">
+              <h2>Courses</h2>
+            </div>
+            <form id="courseForm" class="form-grid compact-form">
+              <label>
+                Course Code
+                <input name="id" placeholder="MTH101" autocomplete="off" required>
+              </label>
+              <label>
+                Course Title
+                <input name="name" placeholder="Introduction to Programming" required>
+              </label>
+              <label>
+                Department
+                <input name="department" placeholder="Computer Science" autocomplete="off">
+              </label>
+              <label>
+                Semester
+                <select name="semester">
+                  <option value="">Any semester</option>
+                  <option value="First Semester">First Semester</option>
+                  <option value="Second Semester">Second Semester</option>
+                  <option value="Summer">Summer</option>
+                </select>
+              </label>
+              <div class="form-actions">
+                <button id="courseSubmitBtn" type="submit" class="primary">Add Course</button>
+                <button id="cancelCourseEditBtn" type="button" class="secondary" hidden>Cancel</button>
+              </div>
+            </form>
+            <p id="courseMessage" class="message" role="status"></p>
+            <div class="table-wrap tight-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Course Title</th>
+                    <th>Department</th>
+                    <th>Semester</th>
+                    <th>Enrolled</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="coursesTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Manual Attendance</h2>
+          </div>
+          <form id="attendanceForm" class="inline-form">
+            <select name="courseId" id="attendanceCourseSelect" required></select>
+            <select name="studentId" id="studentSelect" required></select>
+            <button type="submit" class="primary">Mark Present</button>
+          </form>
+          <p id="attendanceMessage" class="message" role="status"></p>
+          <div class="endpoint">
+            <span>ESP32 POST</span>
+            <code>/api/device/check-in</code>
+          </div>
+        </section>
+
+        <section class="panel attendance-panel">
+          <div class="panel-heading">
+            <h2>Attendance Records</h2>
+            <button id="printBtn" class="secondary">Print PDF</button>
+          </div>
+          <form id="filterForm" class="filter-grid">
+            <label>
+              From
+              <input name="dateFrom" type="date">
+            </label>
+            <label>
+              To
+              <input name="dateTo" type="date">
+            </label>
+            <label>
+              Department
+              <select name="department" id="departmentFilter">
+                <option value="">All departments</option>
+              </select>
+            </label>
+            <label>
+              Course
+              <select name="courseId" id="courseFilter">
+                <option value="">All courses</option>
+              </select>
+            </label>
+            <label>
+              Status
+              <select name="status">
+                <option value="">All statuses</option>
+                <option value="present">Present</option>
+                <option value="late">Late</option>
+              </select>
+            </label>
+            <label class="wide-field">
+              Search
+              <input name="search" placeholder="Name, matric number, course, device, note">
+            </label>
+            <div class="filter-actions">
+              <button type="submit" class="primary">Apply</button>
+              <button id="clearFiltersBtn" type="button" class="secondary">Clear</button>
+            </div>
+          </form>
+          <p id="filterSummary" class="filter-summary"></p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Student</th>
+                  <th>Matric No.</th>
+                  <th>Course</th>
+                  <th>Department</th>
+                  <th>Level</th>
+                  <th>Status</th>
+                  <th>Method</th>
+                </tr>
+              </thead>
+              <tbody id="recordsTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="lists">
+          <div class="panel">
+            <div class="panel-heading">
+              <h2>Students</h2>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Matric No.</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Level</th>
+                    <th>Courses</th>
+                    <th>Fingerprint</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="studentsTable"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-heading">
+              <h2>Recent Attendance</h2>
+            </div>
+            <div id="recordsList" class="records"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

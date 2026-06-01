@@ -332,6 +332,10 @@ legend {
   gap: 8px;
 }
 
+.is-collapsed {
+  display: none !important;
+}
+
 .check-option {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -459,6 +463,17 @@ th {
   min-height: 34px;
   padding: 0 11px;
   font-size: 0.82rem;
+}
+
+.list-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 800;
 }
 
 .empty {

@@ -5,8 +5,17 @@ const state = {
   filteredRecords: [],
   authenticated: false,
   editingStudentId: "",
-  editingCourseId: ""
+  editingCourseId: "",
+  expandedLists: {
+    studentCourses: false,
+    courses: false,
+    students: false,
+    recentRecords: false,
+    records: false
+  }
 };
+
+const LIST_LIMIT = 10;
 
 const els = {
   loginView: document.querySelector("#loginView"),
@@ -22,6 +31,11 @@ const els = {
   coursesTable: document.querySelector("#coursesTable"),
   recordsList: document.querySelector("#recordsList"),
   recordsTable: document.querySelector("#recordsTable"),
+  studentCoursesToggle: document.querySelector("#studentCoursesToggle"),
+  coursesToggle: document.querySelector("#coursesToggle"),
+  studentsToggle: document.querySelector("#studentsToggle"),
+  recentRecordsToggle: document.querySelector("#recentRecordsToggle"),
+  recordsToggle: document.querySelector("#recordsToggle"),
   studentForm: document.querySelector("#studentForm"),
   studentCourses: document.querySelector("#studentCourses"),
   studentSubmitBtn: document.querySelector("#studentSubmitBtn"),
@@ -80,6 +94,28 @@ function normalizeCourseIds(courseIds) {
 function getCourseName(courseId) {
   const course = state.courses.find((item) => item.id === courseId);
   return course ? course.name : courseId;
+}
+
+function getVisibleItems(key, items) {
+  return state.expandedLists[key] ? items : items.slice(0, LIST_LIMIT);
+}
+
+function renderListToggle(element, key, total, label) {
+  if (!element) return;
+
+  if (total <= LIST_LIMIT) {
+    element.innerHTML = "";
+    return;
+  }
+
+  const isExpanded = state.expandedLists[key];
+  const hiddenCount = total - LIST_LIMIT;
+  element.innerHTML = `
+    <button class="secondary small-button" type="button" data-toggle-list="${escapeHtml(key)}">
+      ${isExpanded ? "Show less" : `Show ${hiddenCount} more`}
+    </button>
+    <span>${isExpanded ? `Showing all ${total} ${label}.` : `Showing ${LIST_LIMIT} of ${total} ${label}.`}</span>
+  `;
 }
 
 function showLogin(message = "") {
@@ -176,20 +212,23 @@ function renderCourseFilter() {
 
 function renderStudentCourseOptions(selectedCourseIds = []) {
   const selected = new Set(selectedCourseIds);
+  const isExpanded = state.expandedLists.studentCourses;
   els.studentCourses.innerHTML = state.courses
-    .map((course) => {
+    .map((course, index) => {
       const id = `student-course-${course.id}`;
       return `
-        <label class="check-option" for="${escapeHtml(id)}">
+        <label class="check-option ${!isExpanded && index >= LIST_LIMIT ? "is-collapsed" : ""}" for="${escapeHtml(id)}">
           <input id="${escapeHtml(id)}" type="checkbox" name="courseIds" value="${escapeHtml(course.id)}" ${selected.has(course.id) ? "checked" : ""}>
           <span>${escapeHtml(course.name)} <small>${escapeHtml(course.id)}</small></span>
         </label>
       `;
     })
     .join("");
+  renderListToggle(els.studentCoursesToggle, "studentCourses", state.courses.length, "courses");
 
   if (!state.courses.length) {
     els.studentCourses.innerHTML = '<p class="empty">Add a course before registering students.</p>';
+    renderListToggle(els.studentCoursesToggle, "studentCourses", 0, "courses");
   }
 }
 
@@ -225,7 +264,8 @@ function renderAttendanceStudentSelect() {
 }
 
 function renderCourses() {
-  els.coursesTable.innerHTML = state.courses
+  const visibleCourses = getVisibleItems("courses", state.courses);
+  els.coursesTable.innerHTML = visibleCourses
     .map((course) => {
       return `
         <tr>
@@ -239,14 +279,17 @@ function renderCourses() {
       `;
     })
     .join("");
+  renderListToggle(els.coursesToggle, "courses", state.courses.length, "courses");
 
   if (!state.courses.length) {
     els.coursesTable.innerHTML = '<tr><td colspan="6" class="empty">No courses added yet.</td></tr>';
+    renderListToggle(els.coursesToggle, "courses", 0, "courses");
   }
 }
 
 function renderStudents() {
-  els.studentsTable.innerHTML = state.students
+  const visibleStudents = getVisibleItems("students", state.students);
+  els.studentsTable.innerHTML = visibleStudents
     .map((student) => {
       const courseText = normalizeCourseIds(student.courseIds).map(getCourseName).join(", ") || "-";
       return `
@@ -265,14 +308,17 @@ function renderStudents() {
       `;
     })
     .join("");
+  renderListToggle(els.studentsToggle, "students", state.students.length, "students");
 
   if (!state.students.length) {
     els.studentsTable.innerHTML = '<tr><td colspan="7" class="empty">No students registered yet.</td></tr>';
+    renderListToggle(els.studentsToggle, "students", 0, "students");
   }
 }
 
 function renderRecentRecords(records) {
-  els.recordsList.innerHTML = records
+  const visibleRecords = getVisibleItems("recentRecords", records);
+  els.recordsList.innerHTML = visibleRecords
     .map((record) => {
       return `
         <article class="record">
@@ -284,14 +330,17 @@ function renderRecentRecords(records) {
       `;
     })
     .join("");
+  renderListToggle(els.recentRecordsToggle, "recentRecords", records.length, "records");
 
   if (!records.length) {
     els.recordsList.innerHTML = '<p class="empty">No attendance has been recorded yet.</p>';
+    renderListToggle(els.recentRecordsToggle, "recentRecords", 0, "records");
   }
 }
 
 function renderRecordsTable(records) {
-  els.recordsTable.innerHTML = records
+  const visibleRecords = getVisibleItems("records", records);
+  els.recordsTable.innerHTML = visibleRecords
     .map((record) => {
       return `
         <tr>
@@ -307,12 +356,15 @@ function renderRecordsTable(records) {
       `;
     })
     .join("");
+  renderListToggle(els.recordsToggle, "records", records.length, "records");
 
   if (!records.length) {
     els.recordsTable.innerHTML = '<tr><td colspan="8" class="empty">No attendance records match these filters.</td></tr>';
+    renderListToggle(els.recordsToggle, "records", 0, "records");
   }
 
-  els.filterSummary.textContent = `${records.length} attendance record${records.length === 1 ? "" : "s"} shown.`;
+  const visibleCount = visibleRecords.length;
+  els.filterSummary.textContent = `${visibleCount} of ${records.length} attendance record${records.length === 1 ? "" : "s"} shown.`;
 }
 
 function startStudentEdit(studentId) {
@@ -479,6 +531,32 @@ els.coursesTable.addEventListener("click", (event) => {
   const editButton = event.target.closest("[data-edit-course]");
   if (!editButton) return;
   startCourseEdit(editButton.dataset.editCourse);
+});
+
+els.dashboardView.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-toggle-list]");
+  if (!button) return;
+
+  const key = button.dataset.toggleList;
+  if (!(key in state.expandedLists)) return;
+
+  state.expandedLists[key] = !state.expandedLists[key];
+
+  if (key === "studentCourses") {
+    const courseInputs = els.studentForm.querySelectorAll('input[name="courseIds"]');
+    const selectedIds = Array.from(courseInputs)
+      .filter((input) => input.checked)
+      .map((input) => input.value);
+    renderStudentCourseOptions(selectedIds);
+  } else if (key === "courses") {
+    renderCourses();
+  } else if (key === "students") {
+    renderStudents();
+  } else if (key === "recentRecords") {
+    renderRecentRecords(state.records);
+  } else if (key === "records") {
+    renderRecordsTable(state.filteredRecords);
+  }
 });
 
 els.cancelStudentEditBtn.addEventListener("click", () => {
